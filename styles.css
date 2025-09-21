@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "helvetica neue", Arial, Helvetica, sans-serif;
+}
+
+.body{
+  text-decoration: none;
+  background-color: #FDFBF7;
+  color: #004E64;
+  line-height: 1.6;
+}
+
+/*############################### header ###############################*/
+.contenedorMenu{
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #004E64;
+}
+
+.menu{
+  display: flex;
+  gap: 75px;
+}
+
+.menu a{
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.menu a:hover,
+.menu a:active,
+.menu a:focus{
+color: black;
+}
+
+.menu a.activo{
+  color: black;
+}
+
+/*############################### ofertas ###############################*/
+
+h2 {
+  color: #00755C;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.contenedorOfertas{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contenedorOfertas > div > img{
+  display: block;
+  margin: 0 auto;
+}
+
+h3 a {
+  color: #004E64;
+  text-decoration: none;
+}
+
+h3 a:hover {
+  color: #D4AF37;
+}

@@ -1,47 +1,26 @@
 
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Georgia, 'Times New Roman', serif;
 }
 
 body {
-  background-color: #FFFFFF;
-  color: #003566;
+  background-color: #FDFBF7;
+  color: #004E64;
   line-height: 1.6;
 }
 
 /* Header */
 header {
-  background: url("/imagenes/trasFondo.png") no-repeat center center;
-  background-size: cover;
+  background-color: #004E64;
   color: #FFFFFF;
-  padding: 40px 20px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 300px;
-  position: relative;
-}
-
-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 0;
-}
-
-header > div {
-  position: relative;
-  z-index: 1; 
-}
-
-header h1 img {
-  border-radius: 50%;
-  background: #fff;
-  padding: 5px;
 }
 
 /* Nav */
@@ -54,29 +33,28 @@ nav a {
 }
 
 nav a:hover {
-  color: #00A6FB;
+  color: #F2E3D5;
 }
 
 /* Ofertas */
 h2 {
-  color: #003566;
+  color: #00755C;
   margin: 20px 0;
   text-align: center;
 }
 
 h3 a {
-  color: #003566;
+  color: #004E64;
   text-decoration: none;
 }
 
 h3 a:hover {
-  color: #00A6FB;
-}
+  color: #D4AF37;
 
 /* Cards */
 div > div > div {
-  background: #F1F1F1;
-  border: 1px solid #ddd;
+  background: #F2E3D5;
+  border: 1px solid #E5DED0;
   border-radius: 10px;
   padding: 15px;
   margin: 15px;
@@ -86,7 +64,7 @@ div > div > div {
 
 div > div > div:hover {
   transform: scale(1.03);
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
 }
 
 img {
@@ -97,11 +75,11 @@ img {
 /* Main */
 main {
   padding: 40px 20px;
-  background: #FFFFFF;
+  background: #FDFBF7;
 }
 
 main h2, main h3 {
-  color: #003566;
+  color: #004E64;
 }
 
 main p {
@@ -111,21 +89,21 @@ main p {
 
 /* Footer */
 footer {
-  background-color: #003566;
+  background-color: #004E64;
   color: #FFFFFF;
   padding: 20px;
   text-align: center;
 }
 
 footer a {
-  color: #FFD60A;
+  color: #D4AF37;
   text-decoration: none;
 }
 
 footer a:hover {
-  color: #00A6FB;
+  color: #F2E3D5;
 }
 
 footer h6 {
-  color: #FFD60A;
+  color: #D4AF37;
 }

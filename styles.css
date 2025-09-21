@@ -71,3 +71,42 @@ h3 a {
 h3 a:hover {
   color: #D4AF37;
 }
+
+/*############################### cards ###############################*/
+
+.contenedorMain{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap : 20px;
+}
+.contenedorMain > div{
+  flex : 1;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.contenedorMain > div> img{
+  width: 150px;
+  height: 100px;
+}
+
+/*############################### footer ###############################*/
+
+.contenedorFooter {
+  background-color: #004E64;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+
+.contenedorFooter > div {
+  flex: 1;
+  max-width: 400px;
+  padding: 15px;
+  box-sizing: border-box;
+}

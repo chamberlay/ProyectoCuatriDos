@@ -77,13 +77,23 @@ color: black;
 
 /*############################### ofertas ###############################*/
 
-h2 {
+h2{
   color: #00755C;
   margin: 20px 0;
   text-align: center;
 }
 
+.contenedorOfertas > h2 {
+  flex-basis: 100%;
+  margin-bottom: 20px;
+  color: #1A1A1A; 
+}
+
 .contenedorOfertas{
+  background-color: #70B7AD;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -110,12 +120,21 @@ h2 {
 
 /*############################### cards ###############################*/
 
+.contenedorMain h2 {
+  flex-basis: 100%;
+  margin-bottom: 20px;
+  color: #1A1A1A;
+}
+
 .contenedorMain{
+  background-color: #D9D9D9;
+  padding: 40px 20px;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
   gap : 20px;
   flex-wrap: wrap;
+  border-radius: 10px;
 }
 .contenedorMain > div{
   background: #F2E3D5;

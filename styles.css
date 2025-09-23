@@ -5,11 +5,42 @@
     font-family: "helvetica neue", Arial, Helvetica, sans-serif;
 }
 
-.body{
+body{
   text-decoration: none;
   background-color: #FDFBF7;
   color: #004E64;
   line-height: 1.6;
+}
+
+img, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .contenedorMenu {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .contenedorOfertas,
+  .contenedorMain {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contenedorFooter {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  }
 }
 
 /*############################### header ###############################*/
@@ -56,6 +87,7 @@ h2 {
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .contenedorOfertas > div > img{
@@ -79,17 +111,21 @@ h3 a:hover {
   justify-content: space-around;
   align-items: flex-start;
   gap : 20px;
+  flex-wrap: wrap;
 }
 .contenedorMain > div{
   flex : 1;
   padding: 20px;
   box-sizing: border-box;
   text-align: center;
+  min-width: 250px;
 }
 
 .contenedorMain > div> img{
-  width: 150px;
-  height: 100px;
+  width: 150px; 
+  height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 /*############################### footer ###############################*/
@@ -102,6 +138,7 @@ h3 a:hover {
   align-items: flex-start;
   gap: 20px;
   padding: 20px;
+  flex-wrap: wrap;
 }
 
 .contenedorFooter > div {

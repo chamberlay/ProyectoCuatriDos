@@ -90,18 +90,22 @@ h2 {
   flex-wrap: wrap;
 }
 
+.contenedorOfertas > div{
+  background: #F2E3D5;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contenedorOfertas > div:hover{
+  transform: scale(1.03);
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+}
+
 .contenedorOfertas > div > img{
   display: block;
   margin: 0 auto;
-}
-
-h3 a {
-  color: #004E64;
-  text-decoration: none;
-}
-
-h3 a:hover {
-  color: black;
 }
 
 /*############################### cards ###############################*/
@@ -114,11 +118,20 @@ h3 a:hover {
   flex-wrap: wrap;
 }
 .contenedorMain > div{
+  background: #F2E3D5;
+  border-radius: 10px;
+  margin: 15px 0;
+  transition: transform 0.3s, box-shadow 0.3s;
   flex : 1;
   padding: 20px;
   box-sizing: border-box;
   text-align: center;
   min-width: 250px;
+}
+
+.contenedorMain > div:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
 }
 
 .contenedorMain > div> img{

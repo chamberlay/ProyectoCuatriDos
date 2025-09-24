@@ -31,20 +31,20 @@
         </div>
     </header>
 
-<form action="procesar.txt" method="post">
-        <label for="nombre">Nombre</label> <br>
-        <input type="text" id="nombre" name="nombre"> <br>
+    <form action="procesar.txt" method="post" class="formularioContacto">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre:" required> 
 
-        <label for="apellido">Apellido</label> <br>
-        <input type="text" id="apellido" name="apellido" required> <br>
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido:" required>
 
-        <label for="email">Email</label> <br>
-        <input type="email" id="email" name="email" required> <br>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
 
-        <label for="texto"></label><br>
-        <textarea name="texto" id="texto"></textarea> <br>
+            <label for="texto"></label>
+            <textarea name="texto" id="texto" placeholder="Escriba su mensaje aqui:" rows="5"></textarea>
 
-        <button type="submit">Enviar</button>
+            <button type="submit">Enviar</button>
     </form>
 
     <footer class="contenedorFooter">

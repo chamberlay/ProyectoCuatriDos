@@ -58,7 +58,7 @@ img, iframe {
 }
 
 .menu a{
-  color: #ffffff;
+  color: #D9D9D9;
   text-decoration: none;
   margin-right: 15px;
   font-size: 20px;
@@ -68,7 +68,7 @@ img, iframe {
 .menu a:hover,
 .menu a:active,
 .menu a:focus{
-color: black;
+color: #1A1A1A;
 }
 
 .menu a.activo{

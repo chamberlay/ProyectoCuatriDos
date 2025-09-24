@@ -18,31 +18,6 @@ img, iframe {
   display: block;
 }
 
-@media (max-width: 768px) {
-  .contenedorMenu {
-    height: auto;
-    padding: 10px 0;
-  }
-
-  .menu {
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-  }
-
-  .contenedorOfertas,
-  .contenedorMain {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contenedorFooter {
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  }
-}
-
 /*############################### header ###############################*/
 .contenedorMenu{
   height: 40px;
@@ -50,9 +25,10 @@ img, iframe {
   justify-content: center;
   align-items: center;
   background-color: #004E64;
+  position: relative;
 }
 
-.menu{
+.menu {
   display: flex;
   gap: 75px;
 }
@@ -73,6 +49,21 @@ color: #1A1A1A;
 
 .menu a.activo{
   color: black;
+}
+
+
+#menuHamburguesa {
+  display: none;
+}
+
+.iconoMenu {
+  display: none;
+  font-size: 28px;
+  color: #D9D9D9;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 6px;
 }
 
 /*############################### ofertas ###############################*/
@@ -178,4 +169,40 @@ h2{
   max-width: 400px;
   padding: 15px;
   box-sizing: border-box;
+}
+/*############################### responsive ###############################*/
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    background: #004E64;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    padding: 12px 0;
+    z-index: 999;
+  }
+
+  #menuHamburguesa:checked + .iconoMenu + .menu {
+    display: flex;
+  }
+
+  .iconoMenu {
+    display: block;
+  }
+
+  .contenedorOfertas,
+  .contenedorMain {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contenedorFooter {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  }
 }

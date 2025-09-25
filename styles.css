@@ -12,12 +12,6 @@ body{
   line-height: 1.6;
 }
 
-iframe{
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
 /*############################### header ###############################*/
 .contenedorMenu{
   height: 40px;
@@ -26,6 +20,13 @@ iframe{
   align-items: center;
   background-color: #004E64;
   position: relative;
+}
+
+header img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .menu{
@@ -66,6 +67,90 @@ color: #1A1A1A;
   top: 6px;
 }
 
+/*############################### carrito ###############################*/
+
+.iconoCarrito{
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  right: 60px; 
+  top: 6px;
+}
+
+#carrito{
+  display: none;
+}
+
+.carrito{
+  position: fixed;
+  top: 0;
+  right: -320px; 
+  width: 300px;
+  height: 100%;
+  background: #F2E3D5;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+  padding: 20px;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+#carrito:checked ~ .carrito{
+  right: 0;
+}
+
+.carrito h3{
+  color: #004E64;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.carrito ul{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px;
+}
+
+.carrito li{
+  margin-bottom: 10px;
+  padding: 8px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.carrito button{
+  background: #004E64;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.carrito button:hover{
+  background: #00755C;
+}
+
+.agregarCarrito {
+  background: #F2E3D5;
+  color: #004E64;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+  display: block;
+  margin: 10px auto 30px;
+}
+
+.agregarCarrito:hover {
+  background: #D9D9D9;
+}
 /*############################### ofertas ###############################*/
 
 h2{
@@ -102,6 +187,11 @@ h2{
 .contenedorOfertas > div:hover{
   transform: scale(1.03);
   box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+}
+
+.contenedorOfertas > div > img{
+  display: block;
+  margin: 0 auto;
 }
 
 /*############################### cards ###############################*/
@@ -208,43 +298,6 @@ h2{
   background: #00755C;
 }
 
-/*############################### responsive ###############################*/
-@media (max-width: 768px){
-  .menu{
-    display: none;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-    background: #004E64;
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 100%;
-    padding: 12px 0;
-    z-index: 999;
-  }
-
-  #menuHamburguesa:checked + .iconoMenu + .menu{
-    display: flex;
-  }
-
-  .iconoMenu{
-    display: block;
-  }
-
-  .contenedorOfertas,
-  .contenedorMain{
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contenedorFooter{
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  }
-}
-
 /*############################### categorias ###############################*/
 
 .contenedorProductos{
@@ -321,4 +374,41 @@ h2{
 .descripcion h3{
   color: #004E64;
   margin-bottom: 10px;
+}
+
+/*############################### responsive ###############################*/
+@media (max-width: 768px){
+  .menu{
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    background: #004E64;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    padding: 12px 0;
+    z-index: 999;
+  }
+
+  #menuHamburguesa:checked + .iconoMenu + .menu{
+    display: flex;
+  }
+
+  .iconoMenu{
+    display: block;
+  }
+
+  .contenedorOfertas,
+  .contenedorMain{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contenedorFooter{
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  }
 }

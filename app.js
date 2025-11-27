@@ -52,7 +52,7 @@ export async function GetProductosFromAirTable(tableName) {
 
         data.records.forEach(record => {
             const fields = record.fields;
-            const rutaImg = `/imagenes/${fields.Img}`;
+            const rutaImg = `../imagenes/${fields.Img}`;
             agregarProducto(
                 fields.Categoria,
                 fields.Url,
@@ -63,7 +63,7 @@ export async function GetProductosFromAirTable(tableName) {
 
             const valor_Oferta = fields.Oferta === "true";
             if (valor_Oferta) {
-                const rutaImg = `/imagenes/${fields.Img}`;
+                const rutaImg = `imagenes/${fields.Img}`;
                 agregarProducto(
                     ".contenedorOfertas",
                     fields.Url,
@@ -81,3 +81,4 @@ export async function GetProductosFromAirTable(tableName) {
 }
 
 GetProductosFromAirTable("Productos");
+

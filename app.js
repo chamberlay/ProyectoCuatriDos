@@ -53,9 +53,10 @@ export async function GetProductosFromAirTable(tableName) {
         data.records.forEach(record => {
             const fields = record.fields;
             const rutaImg = `../imagenes/${fields.Img}`;
+            const rutaUrl = `../productos/sitiosTuristicos/${fields.Url}`;
             agregarProducto(
                 fields.Categoria,
-                fields.Url,
+                rutaUrl,
                 rutaImg,
                 fields.Nombre,
                 fields.Precio
@@ -64,9 +65,10 @@ export async function GetProductosFromAirTable(tableName) {
             const valor_Oferta = fields.Oferta === "true";
             if (valor_Oferta) {
                 const rutaImg = `imagenes/${fields.Img}`;
+                const rutaUrl = `productos/sitiosTuristicos/${fields.Url}`;
                 agregarProducto(
                     ".contenedorOfertas",
-                    fields.Url,
+                    rutaUrl,
                     rutaImg,
                     fields.Nombre,
                     fields.Precio
@@ -82,3 +84,6 @@ export async function GetProductosFromAirTable(tableName) {
 
 GetProductosFromAirTable("Productos");
 
+//<a href="productos/sitiosTuristicos/estadioRiver.html"><img src="imagenes/estadioRiver.jpg" width="300" height="200"></a>
+
+//<a href="../productos/sitiosTuristicos/estadioRiver.html"><img src="../imagenes/estadioRiver.jpg" width="300" height="200"></a>

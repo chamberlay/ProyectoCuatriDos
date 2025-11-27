@@ -56,7 +56,13 @@
     </header>
 
     <div class="contenedorOfertas">
-        <h2>Ofertas destacadas</h2>                                             
+        <h2>Ofertas destacadas</h2> 
+        
+        <script type="module">
+            import { GetProductosFromAirTable } from './app.js';
+            GetProductosFromAirTable("Promociones");
+        </script>
+        
     </div>
 
     <main class="contenedorMain">

@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             // no me esta cargando los productos en GitHub Pages
             console.log("Llamando a Airtable en:", airTableUrl);
-            
+
             const respuesta = await fetch(airTableUrl, {
                 headers: {
                     Authorization: `Bearer ${airTableToken}`,
@@ -75,3 +75,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     GetProductosFromAirTable();
 });
+
+// Fin del DOMContentLoaded

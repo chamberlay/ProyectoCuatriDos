@@ -62,7 +62,7 @@ export async function GetProductosFromAirTable(tableName) {
 
             const valor_Oferta = fields.Oferta === "true";
             if (valor_Oferta) {
-                const rutaImg = `/imagenes/${fields.Img}`;
+                const rutaImg = `imagenes/${fields.Img}`;
                 agregarProducto(
                     ".contenedorOfertas",
                     fields.Url,

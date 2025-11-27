@@ -52,10 +52,11 @@ export async function GetProductosFromAirTable(tableName) {
 
         data.records.forEach(record => {
             const fields = record.fields;
+            const rutaImg = `imagenes/${fields.Img}`;
             agregarProducto(
                 fields.Categoria,
                 fields.Url,
-                fields.Img,
+                rutaImg,
                 fields.Nombre,
                 fields.Precio
             );

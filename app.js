@@ -44,6 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Función para obtener datos de Airtable
     async function GetProductosFromAirTable() {
         try {
+            // no me esta cargando los productos en GitHub Pages
+            console.log("Llamando a Airtable en:", airTableUrl);
+            
             const respuesta = await fetch(airTableUrl, {
                 headers: {
                     Authorization: `Bearer ${airTableToken}`,

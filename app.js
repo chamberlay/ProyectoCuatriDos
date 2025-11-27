@@ -1,41 +1,12 @@
+import { air_Table_Token, air_Table_Base_Id, table_Name} from './env.js';
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    const airTableToken = "pat7WIp6eyTQda8si.511f3239df29777613e6f749b59940f18d15d764f3da1b3a5bc4f4742cc61054";
-    const airTableBaseId = "app2xHmIx8fMyiNyJ";
-    const airTableTableName = "Sitios Turisticos";
-
-    const airTableUrl = `https://api.airtable.com/v0/${airTableBaseId}/${airTableTableName}`;
-
-    async function GetSitiosTuristicosFromAirTable() {
-        try {
-            const respuesta = await fetch(airTableUrl, {
-                headers: {
-                    'authorization': `Bearer ${airTableToken}`,
-                    'Content-Type': 'application/json'
-                }
-            });
-            const data = await respuesta.json();
-            console.log("Productos de AirTable: ", data);
-        }
-        catch (error) {
-            console.error("Error al obtener los datos de AirTable: ", error);
-        }
-    }
-
-    GetSitiosTuristicosFromAirTable();
-});
-
-
-
-
-
-
-
-    /*
+    //funcion para agregar productos a las secciones
     function agregarProducto(clase, href, src, titulo, precio){
         const productos = document.querySelector(clase);
         if(!productos) return;
-        
+
         const contenedor = document.createElement("div");
         contenedor.className = "producto";
 
@@ -64,6 +35,50 @@ document.addEventListener("DOMContentLoaded", () => {
         productos.appendChild(contenedor);
     }
 
+    // Configuración de Airtable
+    const airTableToken = air_Table_Token;
+    const airTableBaseId = air_Table_Base_Id;
+    const tableName = table_Name;
+    const airTableUrl = `https://api.airtable.com/v0/${airTableBaseId}/${tableName}`;
+
+    // Función para obtener datos de Airtable
+    async function GetSitiosTuristicosFromAirTable() {
+        try {
+            const respuesta = await fetch(airTableUrl, {
+                headers: {
+                    Authorization: `Bearer ${airTableToken}`,
+                    "Content-Type": "application/json"
+                }
+            });
+            const data = await respuesta.json();
+            console.log("Productos de AirTable: ", data);
+
+            data.records.forEach(record => {
+                const fields = record.fields;
+
+                agregarProducto(
+                    fields.Categoria,
+                    fields.Url,
+                    fields.Img,
+                    fields.Nombre,
+                    fields.Precio
+                );
+            }); 
+        }
+        catch (error) {
+            console.error("Error al obtener los datos de AirTable: ", error);
+        }
+    }
+
+    GetSitiosTuristicosFromAirTable();
+});
+
+
+
+
+
+
+    /*
     // Agregar productos de sitios turísticos
     agregarProducto(".productosSitiosTuristicos", "../productos/sitiosTuristicos/estadioRiver.html", "../imagenes/maderoTangoLetras.jpg", "Madero tango cena show", "25.000");
     agregarProducto(".productosSitiosTuristicos", "../productos/sitiosTuristicos/estadioRiver.html", "../imagenes/obelisco.jpg", "City tour privado", "15.000");

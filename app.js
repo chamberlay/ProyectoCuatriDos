@@ -66,7 +66,7 @@ export async function GetProductosFromAirTable(tableName) {
                 agregarProducto(
                     ".contenedorOfertas",
                     fields.Url,
-                    fields.Img,
+                    rutaImg,
                     fields.Nombre,
                     fields.Precio
                     );

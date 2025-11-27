@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../styles.css">
     <title>BA Experience</title>
 </head>
+<script src="../app.js"></script>
 <body>
 
     <header>
@@ -57,12 +58,13 @@
 
     <div class="buscador">
         <form action="#" method="get">
-            <input type="search" placeholder="Buscar producto...">
+            <input id="buscador" type="search" placeholder="Buscar producto...">
         </form>
     </div>
 
     <div class="contenedorProductos">
         <div class="productosEventosDeportivos"></div>
+        <!-- los productos se cargan mediante JS -->
     </div>
 
     <footer class="contenedorFooter">
@@ -96,7 +98,4 @@
     </footer>
 
 </body>
-
-<script src="../index.js"></script>
-
 </html>

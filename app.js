@@ -75,5 +75,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
     GetProductosFromAirTable();
 });
-
-// Fin del DOMContentLoaded

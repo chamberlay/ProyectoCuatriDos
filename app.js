@@ -15,7 +15,6 @@ function agregarProducto(clase, href, src, titulo, precio){
 
     const newAnchor = document.createElement("a");
     newAnchor.href = href;
-    //newAnchor.target = "_blank";
 
     const newImg = document.createElement("img");
     newImg.src = src;
@@ -52,38 +51,16 @@ export async function GetProductosFromAirTable(tableName) {
 
         data.records.forEach(record => {
             const fields = record.fields;
-            const rutaImg = `../imagenes/${fields.Img}`;
-            const rutaUrl = `../productos/sitiosTuristicos/${fields.Url}`;
             agregarProducto(
                 fields.Categoria,
-                rutaUrl,
-                rutaImg,
+                fields.Url,
+                fields.Img,
                 fields.Nombre,
                 fields.Precio
             );
-
-            const valor_Oferta = fields.Oferta === "true";
-            if (valor_Oferta) {
-                const rutaImg = `imagenes/${fields.Img}`;
-                const rutaUrl = `productos/sitiosTuristicos/${fields.Url}`;
-                agregarProducto(
-                    ".contenedorOfertas",
-                    rutaUrl,
-                    rutaImg,
-                    fields.Nombre,
-                    fields.Precio
-                    );
-            }
-
         }); 
     }
     catch (error) {
         console.error("Error al obtener los datos de AirTable: ", error);
     }
 }
-
-GetProductosFromAirTable("Productos");
-
-//<a href="productos/sitiosTuristicos/estadioRiver.html"><img src="imagenes/estadioRiver.jpg" width="300" height="200"></a>
-
-//<a href="../productos/sitiosTuristicos/estadioRiver.html"><img src="../imagenes/estadioRiver.jpg" width="300" height="200"></a>

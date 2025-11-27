@@ -63,7 +63,11 @@
 
     <div class="contenedorProductos">
         <div class="productosSitiosTuristicos"></div>
-        <!-- los productos se cargan desde app.js -->
+        
+        <script type="module">
+            import { GetProductosFromAirTable } from '../app.js';
+            GetProductosFromAirTable("SitiosTuristicos");
+        </script>
     </div>
 
     <footer class="contenedorFooter">

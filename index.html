@@ -32,26 +32,10 @@
                 <a title="Contacto" href="./menu/contacto.html">Contacto</a>
             </nav>
 
-            <input type="checkbox" id="carrito">
-            <label for="carrito" class="iconoCarrito">
-            <i class="fa fa-shopping-cart"></i>
-            </label>
-
-            <div class="carrito">
-                <a href="./index.html">
-                    <button>x</button>
-                </a>
-
-                <h3>Tu carrito</h3>
-                <ul>
-                    <li>Entrada Estadio River — $20.000</li>
-                    <li>Concierto Coldplay — $45.000</li>
-                </ul>
-                <p><strong>Total:</strong> $65.000</p>
-                <a href="./menu/contacto.html">
-                    <button>Finalizar compra</button>
-                </a>
-            </div>
+            <!-- Carrito de compras-->
+            <a href="./menu/carrito.html" class="iconoCarrito">
+                <i class="fa fa-shopping-cart" style="font-size:32px;"></i>
+            </a>
         </div>
     </header>
 
@@ -62,7 +46,6 @@
             import { GetProductosFromAirTable } from './app.js';
             GetProductosFromAirTable("Promociones");
         </script>
-        
     </div>
 
     <main class="contenedorMain">

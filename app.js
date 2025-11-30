@@ -1,6 +1,10 @@
 //importo el archivo env.js con las keys de Airtable
 import { air_Table_Token, air_Table_Base_Id} from './env.js';
 
+//importo el modulo carrito.js
+import { agregarAlCarrito } from "./carrito.js";
+
+
 // Configuración de Airtable
 const airTableToken = air_Table_Token;
 const airTableBaseId = air_Table_Base_Id;
@@ -28,11 +32,22 @@ function agregarProducto(clase, href, src, titulo, precio){
     newPrice.textContent = `$${Number(precio).toLocaleString("es-AR")}`;
     newPrice.className = "precio";
 
+    const newBoton = document.createElement("button");
+    newBoton.textContent = "Agregar al carrito";
+    newBoton.className = "agregarCarrito";
+
+    newBoton.onclick = () => {
+        agregarAlCarrito({
+            nombre: titulo,
+            precio: precio
+        });
+    };
 
     newAnchor.appendChild(newImg);
     contenedor.appendChild(newAnchor);
     contenedor.appendChild(newH3);
     contenedor.appendChild(newPrice);
+    contenedor.appendChild(newBoton);
 
     productos.appendChild(contenedor);
 }

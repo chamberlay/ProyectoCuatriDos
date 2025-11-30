@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Carrito – BA Experience</title>
+</head>
+<body>
+
+<header class="contenedorMenu">
+    <h2 style="color:white;">Tu carrito</h2>
+</header>
+
+<div class="paginaCarrito">
+    <h3>Productos seleccionados</h3>
+    <ul id="listaCarrito"></ul>
+
+    <p id="totalCarrito" class="total"></p>
+
+    <a href="./contacto.html">
+        <button class="finalizar">Finalizar compra</button>
+    </a>
+</div>
+
+<script type="module">
+    import { mostrarCarrito } from "../carrito.js";
+    mostrarCarrito();
+</script>
+
+</body>
+</html>

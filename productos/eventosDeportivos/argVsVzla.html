@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="../../styles.css">
     <title>BA Experience</title>
 </head>
+<script type="module">
+    import { agregarAlCarrito } from "../../carrito.js";
+    window.agregarAlCarrito = agregarAlCarrito;
+</script>
 <body>
 
     <header>
@@ -31,26 +35,10 @@
                 <a title="Contacto" href="../../menu/contacto.html">Contacto</a>
             </nav>
 
-            <input type="checkbox" id="carrito">
-            <label for="carrito" class="iconoCarrito">
-            <i class="fa fa-shopping-cart"></i>
-            </label>
-
-            <div class="carrito">
-                <a href="./argVsVzla.html">
-                    <button class="cerrarCarrito">✖</button>
-                </a>
-
-                <h3>Tu carrito</h3>
-                <ul>
-                    <li>Entrada Estadio River — $20.000</li>
-                    <li>Concierto Coldplay — $45.000</li>
-                </ul>
-                <p><strong>Total:</strong> $65.000</p>
-                <a href="../..//menu/contacto.html">
-                    <button>Finalizar compra</button>
-                </a>
-            </div>
+            <a href="../../menu/carrito.html" class="iconoCarrito">
+                <i class="fa fa-shopping-cart" style="font-size:32px;"></i>
+            </a>
+            
         </div>
     </header>
 
@@ -90,7 +78,11 @@
         </div>
     </div>
 
-    <button class="agregarCarrito">Agregar al carrito</button>
+                                    <!--colocar ccs al boton-->
+    <button class="agregarCarrito"
+        onclick="agregarAlCarrito({ nombre: 'Paquete Argentina VS Venezuela', precio: 12000 })">
+    Agregar al carrito
+    </button>
 
     <footer class="contenedorFooter">
         <div>            

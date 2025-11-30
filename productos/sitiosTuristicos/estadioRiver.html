@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="../../styles.css">
     <title>BA Experience</title>
 </head>
+<script type="module">
+    import { agregarAlCarrito } from "../../carrito.js";
+    window.agregarAlCarrito = agregarAlCarrito;
+</script>
 <body>
 
     <header>
@@ -86,11 +90,7 @@
         </div>
     </div>
 
-    <script type="module">
-        import { agregarAlCarrito } from "../../carrito.js";
-        window.agregarAlCarrito = agregarAlCarrito;
-    </script>
-
+                                    <!--colocar ccs al boton-->
     <button class="agregarCarrito"
         onclick="agregarAlCarrito({ nombre: 'Visita al Estadio River', precio: 20000 })">
     Agregar al carrito

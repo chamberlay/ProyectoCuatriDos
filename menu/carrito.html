@@ -8,7 +8,11 @@
     <title>BA Experience</title>
 </head>
 <script type="module">
-    import { mostrarCarrito } from "../carrito.js";
+    import { mostrarCarrito, eliminarDelCarrito } from "../carrito.js";
+
+    window.mostrarCarrito = mostrarCarrito;
+    window.eliminarDelCarrito = eliminarDelCarrito;
+
     mostrarCarrito();
 </script>
 <body>

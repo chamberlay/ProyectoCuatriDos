@@ -23,14 +23,33 @@ export function agregarAlCarrito(producto) {
 export function mostrarCarrito() {
     const lista = document.getElementById("listaCarrito");
     const total = document.getElementById("totalCarrito");
+    lista.innerHTML = "";
+
     const carrito = obtenerCarrito();
 
-    carrito.forEach(item => {
+    carrito.forEach((item, index) => {
         const li = document.createElement("li");
-        li.textContent = `${item.nombre} — $${item.precio}`;
+        li.innerHTML = `
+            ${item.nombre} — $${item.precio}
+            <button onclick="eliminarDelCarrito(${index})">❌</button>`;
         lista.appendChild(li);
     });
 
     const totalNum = carrito.reduce((acc, item) => acc + Number(item.precio), 0);
     total.textContent = `Total: $${totalNum.toLocaleString("es-AR")}`;
+}
+
+// Eliminar producto por índice
+export function eliminarDelCarrito(index) {
+    return new Promise((resolve, reject) => {
+        try {
+            const carrito = obtenerCarrito();
+            carrito.splice(index, 1);
+            guardarCarrito(carrito);
+            mostrarCarrito();
+            resolve(carrito);
+        } catch (error) {
+            reject(error);
+        }
+    });
 }

@@ -37,10 +37,7 @@ function agregarProducto(clase, href, src, titulo, precio){
     newBoton.className = "agregarCarrito";
 
     newBoton.onclick = () => {
-        agregarAlCarrito({
-            nombre: titulo,
-            precio: precio
-        });
+        agregarAlCarrito({nombre: titulo, precio: precio});
     };
 
     newAnchor.appendChild(newImg);

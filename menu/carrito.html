@@ -3,30 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../styles.css">
-    <title>Carrito – BA Experience</title>
+    <title>BA Experience</title>
 </head>
-<body>
-
-<header class="contenedorMenu">
-    <h2 style="color:white;">Tu carrito</h2>
-</header>
-
-<div class="paginaCarrito">
-    <h3>Productos seleccionados</h3>
-    <ul id="listaCarrito"></ul>
-
-    <p id="totalCarrito" class="total"></p>
-
-    <a href="./contacto.html">
-        <button class="finalizar">Finalizar compra</button>
-    </a>
-</div>
-
 <script type="module">
     import { mostrarCarrito } from "../carrito.js";
     mostrarCarrito();
 </script>
+<body>
+
+    <header>
+            <div>
+                <h1>
+                    <a href="../index.html" title="BA Experience" rel="home">
+                        <img src="../imagenes/fondo.png" alt="BA Experience">
+                    </a>
+                </h1>
+
+            </div>
+
+            <div class="contenedorMenu">
+                <input type="checkbox" id="menuHamburguesa">
+                <label for="menuHamburguesa" class="iconoMenu"><i class="fa fa-bars"></i></label>
+                
+                <nav class="menu">
+                    <a title="Promociones" href="../index.html">Promociones</a>
+                    <a title="Sitios Turisticos" href="./sitiosTuristicos.html">Sitios Turisticos</a>
+                    <a title="Eventos Deportivos" href="./eventosDeportivos.html">Eventos deportivos</a>
+                    <a title="Recitales" href="./recitales.html">Recitales</a>
+                    <a title="Transportes" href="./transportes.html">Transportes</a>
+                    <a class="activo" title="Contacto" href="./contacto.html">Contacto</a>
+                </nav>
+                
+                <a href="carrito.html" class="iconoCarrito">
+                    <i class="fa fa-shopping-cart" style="font-size:32px;"></i>
+                </a>         
+            </div>
+    </header>
+
+    <div class="paginaCarrito">
+        <h3>Productos seleccionados</h3>
+        <ul id="listaCarrito"></ul>
+
+        <p id="totalCarrito" class="total"></p>
+
+        <a href="./contacto.html">
+            <button class="finalizar">Finalizar compra</button>
+        </a>
+    </div>
+
+    <footer class="contenedorFooter">
+        <div>            
+            <h3>BA Experience</h3> <br>
+            <h5><i class="fa fa-map-marker"></i> Terminal de Omnibus de Retiro, Ala Norte, Loc C-15 - Buenos Aires, Argentina</h5> <br>
+            <h5><i class="fa fa-phone"></i> (+54) 11 12345678</h5> <br>
+            <h5><i class="fa fa-envelope-o"></i> consultas@baexperience.tur.ar</h5> <br>
+            <h5><i class="fa fa-facebook"></i> facebook.com/BAExperience</h5> <br>           
+        </div>
+
+        <div>
+            <h3>Visítenos</h3> <br>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.8232258722296!2d-58.3823428!3d-34.584906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccb1d906a787d%3A0x89e2d625bee7d37c!2sTerminal%20de%20Retiro!5e0!3m2!1ses!2sar!4v1694883600000!5m2!1ses!2sar"
+                title="Mapa — Terminal de Retiro"
+                width="300"
+                height="200"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+            
+        <div>
+            <strong>BA Experience</strong> es una agencia de turismo de la Ciudad Autonoma De Buenos Aires, en la República Argentina. 
+            Registrada bajo el <strong>Leg. N° 16184 </strong> otorgada por el Registro Nacional de Agencias de Turismo <br>
+            <img src="../imagenes/logosFooter.png" alt="">
+        </div>
+    </footer>    
 
 </body>
 </html>

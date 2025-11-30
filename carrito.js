@@ -13,7 +13,10 @@ export function agregarAlCarrito(producto) {
     const carrito = obtenerCarrito();
     carrito.push(producto);
     guardarCarrito(carrito);
+
+    //modificar el alart por algo mejor luego
     alert("Producto agregado al carrito!");
+    /////////////////////////////////////////
 }
 
 // Mostrar carrito en carrito.html

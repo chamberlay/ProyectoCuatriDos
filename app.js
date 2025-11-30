@@ -63,16 +63,37 @@ export async function GetProductosFromAirTable(tableName) {
 
         data.records.forEach(record => {
             const fields = record.fields;
-            agregarProducto(
-                fields.Categoria,
-                fields.Url,
-                fields.Img,
-                fields.Nombre,
-                fields.Precio
-            );
+            if (fields.Activo === "true"){
+                agregarProducto(
+                    fields.Categoria,
+                    fields.Url,
+                    fields.Img,
+                    fields.Nombre,
+                    fields.Precio
+                );
+            }
         }); 
     }
     catch (error) {
         console.error("Error al obtener los datos de AirTable: ", error);
     }
 }
+
+// buscador de productos
+window.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("searchInput");
+  const container = document.querySelector(".contenedorProductos");
+
+  if (!input || !container) return;
+
+  input.addEventListener("input", (e) => {
+    const query = e.target.value.toLowerCase();
+
+    container.querySelectorAll(".producto").forEach((prod) => {
+      const nombre = (prod.querySelector("h3")?.textContent || "").toLowerCase();
+      const precio = (prod.querySelector(".precio")?.textContent || "").toLowerCase();
+
+      prod.style.display = (nombre.includes(query) || precio.includes(query)) ? "" : "none";
+    });
+  });
+});

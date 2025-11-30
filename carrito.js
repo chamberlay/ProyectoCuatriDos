@@ -53,3 +53,16 @@ export function eliminarDelCarrito(index) {
         }
     });
 }
+
+// Vaciar carrito completo
+export function vaciarCarrito() {
+    return new Promise((resolve, reject) => {
+        try {
+            guardarCarrito([]);
+            mostrarCarrito();
+            resolve([]);
+        } catch (error) {
+            reject(error);
+        }
+    });
+}

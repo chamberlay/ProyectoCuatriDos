@@ -8,10 +8,11 @@
     <title>BA Experience</title>
 </head>
 <script type="module">
-    import { mostrarCarrito, eliminarDelCarrito } from "../carrito.js";
+    import { mostrarCarrito, eliminarDelCarrito, vaciarCarrito } from "../carrito.js";
 
     window.mostrarCarrito = mostrarCarrito;
     window.eliminarDelCarrito = eliminarDelCarrito;
+    window.vaciarCarrito = vaciarCarrito;
 
     mostrarCarrito();
 </script>
@@ -51,6 +52,8 @@
         <ul id="listaCarrito"></ul>
 
         <p id="totalCarrito" class="total"></p>
+        
+        <button onclick="vaciarCarrito()">Vaciar carrito</button>
 
         <a href="./contacto.html">
             <button class="finalizar">Finalizar compra</button>

@@ -8,11 +8,12 @@
     <title>BA Experience</title>
 </head>
 <script type="module">
-    import { mostrarCarrito, eliminarDelCarrito, vaciarCarrito } from "../carrito.js";
+    import { mostrarCarrito, eliminarDelCarrito, vaciarCarrito, actualizarResumenCarrito} from "../carrito.js";
 
     window.mostrarCarrito = mostrarCarrito;
     window.eliminarDelCarrito = eliminarDelCarrito;
     window.vaciarCarrito = vaciarCarrito;
+    window.actualizarResumenCarrito = actualizarResumenCarrito;
 
     mostrarCarrito();
 </script>
@@ -47,17 +48,25 @@
             </div>
     </header>
 
-    <div class="paginaCarrito">
-        <h3>Productos seleccionados</h3>
-        <ul id="listaCarrito"></ul>
+    <div class="contenedorCarrito">
+        <div class="contenedorLista">
+            <h3>Productos seleccionados</h3>
+            <ul id="listaCarrito"></ul>
+        </div>
 
-        <p id="totalCarrito" class="total"></p>
-        
-        <button onclick="vaciarCarrito()">Vaciar carrito</button>
+        <div class="resumenCarrito">
+            <h3>Resumen de compra</h3>
+            
+            <p id="totalCarrito" class="total"></p>
 
-        <a href="./contacto.html">
-            <button class="finalizar">Finalizar compra</button>
-        </a>
+            <div class="botonesCarrito">
+                <a href="./contacto.html">
+                    <button id="finalizarCarrito">Finalizar compra</button>
+                </a>
+                <button id="vaciarCarrito" onclick="vaciarCarrito()">Vaciar carrito</button>
+            </div>
+
+        </div>  
     </div>
 
     <footer class="contenedorFooter">

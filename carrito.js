@@ -21,23 +21,38 @@ export function agregarAlCarrito(producto) {
 
 // Mostrar carrito en carrito.html
 export function mostrarCarrito() {
-    const lista = document.getElementById("listaCarrito");
-    const total = document.getElementById("totalCarrito");
-    lista.innerHTML = "";
+  const lista = document.getElementById("listaCarrito");
+  const total = document.getElementById("totalCarrito");
+  lista.innerHTML = "";
 
-    const carrito = obtenerCarrito();
+  const carrito = obtenerCarrito();
 
-    carrito.forEach((item, index) => {
-        const li = document.createElement("li");
-        li.innerHTML = `
-            ${item.nombre} — $${item.precio}
-            <button onclick="eliminarDelCarrito(${index})">❌</button>`;
-        lista.appendChild(li);
-    });
+  carrito.forEach((item, index) => {
+    const li = document.createElement("li");
 
-    const totalNum = carrito.reduce((acc, item) => acc + Number(item.precio), 0);
-    total.textContent = `Total: $${totalNum.toLocaleString("es-AR")}`;
+    if (item.img) {
+      const img = document.createElement("img");
+      img.src = item.img;
+      img.alt = item.nombre || "Producto";
+      img.style.width = "100%";
+      li.appendChild(img);
+    }
+
+    const h4 = document.createElement("h4");
+    h4.textContent = item.nombre || "Sin nombre";
+    li.appendChild(h4);
+
+    const btn = document.createElement("button");
+    btn.textContent = "❌";
+    btn.onclick = () => eliminarDelCarrito(index);
+    li.appendChild(btn);
+
+    lista.appendChild(li);
+  });
+
+  actualizarResumenCarrito(carrito, total);
 }
+
 
 // Eliminar producto por índice
 export function eliminarDelCarrito(index) {
@@ -65,4 +80,16 @@ export function vaciarCarrito() {
             reject(error);
         }
     });
+}
+
+export function actualizarResumenCarrito(carrito, totalElement) {
+  const subtotal = carrito.reduce((acc, item) => acc + Number(item.precio), 0);
+  const iva = subtotal * 0.21;
+  const total = subtotal + iva;
+
+  totalElement.innerHTML = `
+    Subtotal: $${subtotal.toLocaleString("es-AR")}<br>
+    IVA (21%): $${iva.toLocaleString("es-AR")}<br>
+    <strong>Total: $${total.toLocaleString("es-AR")}</strong>
+  `;
 }

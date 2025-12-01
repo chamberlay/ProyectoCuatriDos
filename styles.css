@@ -94,6 +94,99 @@ color: #d9d9d9;
 .agregarCarrito:hover {
   background: #D9D9D9;
 }
+
+.contenedorCarrito{
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.contenedorLista{
+  flex: 2;
+}
+
+#listaCarrito {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#listaCarrito img {
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 6px;
+}
+
+
+#listaCarrito li {
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.resumenCarrito {
+  flex: 1;
+  background: #F2E3D5;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.resumenCarrito h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #004E64;
+}
+
+.botonesCarrito {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+#vaciarCarrito, #finalizarCarrito {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+  width: auto;
+  margin-top: 10px;
+}
+
+.botonesCarrito {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+#finalizarCarrito {
+  background: #28a745; /* verde aceptación */
+  color: #fff;
+}
+
+#finalizarCarrito:hover {
+  background: #218838;
+}
+
+#vaciarCarrito {
+  background: #dc3545; /* rojo negación */
+  color: #fff;
+}
+
+#vaciarCarrito:hover {
+  background: #c82333;
+}
 /*############################### ofertas ###############################*/
 
 h2{

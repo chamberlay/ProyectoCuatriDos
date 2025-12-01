@@ -78,66 +78,9 @@ color: #d9d9d9;
   top: 6px;
 }
 
-#carrito{
-  display: none;
-}
-
-.carrito{
-  position: fixed;
-  top: 0;
-  right: -320px; 
-  width: 300px;
-  height: 100%;
-  background: #F2E3D5;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.3);
-  padding: 20px;
-  transition: right 0.3s ease;
-  overflow-y: auto;
-  z-index: 1000;
-}
-
-#carrito:checked ~ .carrito{
-  right: 0;
-}
-
-.carrito h3{
-  color: #004E64;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.carrito ul{
-  list-style: none;
-  padding: 0;
-  margin: 0 0 15px;
-}
-
-.carrito li{
-  margin-bottom: 10px;
-  padding: 8px;
-  background: #fff;
-  border-radius: 5px;
-}
-
-.carrito button{
-  background: #004E64;
-  color: #fff;
-  border: none;
-  padding: 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  width: 100%;
-  font-size: 16px;
-  transition: background 0.3s;
-}
-
-.carrito button:hover{
-  background: #00755C;
-}
-
 .agregarCarrito {
-  background: #F2E3D5;
-  color: #004E64;
+  background: #004E64;
+  color: #ffffff;
   border: none;
   padding: 10px 15px;
   border-radius: 6px;

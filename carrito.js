@@ -29,21 +29,24 @@ export function mostrarCarrito() {
 
   carrito.forEach((item, index) => {
     const li = document.createElement("li");
+    li.className = "itemCarrito";
 
     if (item.img) {
       const img = document.createElement("img");
       img.src = item.img;
       img.alt = item.nombre || "Producto";
-      img.style.width = "100%";
+      img.className = "imagenCarrito";
       li.appendChild(img);
     }
 
     const h4 = document.createElement("h4");
     h4.textContent = item.nombre || "Sin nombre";
+    h4.className = "tituloCarrito";
     li.appendChild(h4);
 
     const btn = document.createElement("button");
-    btn.textContent = "❌";
+    btn.textContent = "Eliminar del carrito";
+    btn.className = "botonEliminar";
     btn.onclick = () => eliminarDelCarrito(index);
     li.appendChild(btn);
 

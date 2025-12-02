@@ -10,13 +10,18 @@ export function guardarCarrito(carrito) {
 
 // Agregar producto desde otras páginas
 export function agregarAlCarrito(producto) {
-    const carrito = obtenerCarrito();
-    carrito.push(producto);
-    guardarCarrito(carrito);
+  const carrito = obtenerCarrito();
+  carrito.push(producto);
+  guardarCarrito(carrito);
 
-    //modificar el alart por algo mejor luego
-    alert("Producto agregado al carrito!");
-    /////////////////////////////////////////
+  const mensaje = document.createElement("div");
+  mensaje.textContent = "✅ Se agregó el producto al carrito";
+  mensaje.className = "mensajeCarrito";
+  document.body.appendChild(mensaje);
+
+  setTimeout(() => {
+    mensaje.remove();
+  }, 1000);
 }
 
 // Mostrar carrito en carrito.html
@@ -85,6 +90,7 @@ export function vaciarCarrito() {
     });
 }
 
+// Actualizar resumen de compra
 export function actualizarResumenCarrito(carrito, totalElement) {
   const subtotal = carrito.reduce((acc, item) => acc + Number(item.precio), 0);
   const iva = subtotal * 0.21;
@@ -95,4 +101,41 @@ export function actualizarResumenCarrito(carrito, totalElement) {
     IVA (21%): $${iva.toLocaleString("es-AR")}<br>
     <strong>Total: $${total.toLocaleString("es-AR")}</strong>
   `;
+}
+
+// Mostrar carrito en contacto.html
+export function mostrarCarritoEnContacto() {
+  const lista = document.getElementById("listaCarrito");
+  const mensajeVacio = document.getElementById("mensajeCarritoVacio");
+  if (!lista) return; // seguridad
+
+  lista.innerHTML = "";
+  const carrito = obtenerCarrito();
+
+  if (carrito.length === 0) {
+    if (mensajeVacio) mensajeVacio.style.display = "block";
+    return;
+  }
+
+  if (mensajeVacio) mensajeVacio.style.display = "none";
+
+  carrito.forEach(item => {
+    const li = document.createElement("li");
+    li.className = "itemCarrito";
+
+    if (item.img) {
+      const img = document.createElement("img");
+      img.src = item.img;
+      img.alt = item.nombre || "Producto";
+      img.className = "imagenCarrito";
+      li.appendChild(img);
+    }
+
+    const h4 = document.createElement("h4");
+    h4.textContent = item.nombre || "Sin nombre";
+    h4.className = "tituloCarrito";
+    li.appendChild(h4);
+
+    lista.appendChild(li);
+  });
 }

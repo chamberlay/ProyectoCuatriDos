@@ -107,6 +107,7 @@ color: #d9d9d9;
 
 .contenedorLista h3 {
   text-align: center;
+  margin-top: 20px;
   margin-bottom: 15px;
   color: #004E64;
 }
@@ -117,7 +118,7 @@ color: #d9d9d9;
   gap: 15px;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 20px 0;
 }
 
 .itemCarrito {
@@ -152,6 +153,8 @@ color: #d9d9d9;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .resumenCarrito h3 {
@@ -194,13 +197,6 @@ color: #d9d9d9;
   margin-top: 10px;
 }
 
-.botonesCarrito {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-}
-
 #finalizarCarrito {
   background: #28a745;
   color: #fff;
@@ -218,6 +214,30 @@ color: #d9d9d9;
 #vaciarCarrito:hover {
   background: #c82333;
 }
+
+.mensajeCarrito {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #28a745;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 9999;
+  animation: fadeInOut 1s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, -60%); }
+  20% { opacity: 1; transform: translate(-50%, -50%); }
+  80% { opacity: 1; transform: translate(-50%, -50%); }
+  100% { opacity: 0; transform: translate(-50%, -40%); }
+}
+
 /*############################### ofertas ###############################*/
 
 h2{
@@ -325,43 +345,33 @@ h2{
 
 /*############################### contacto ###############################*/
 
-.formularioContacto{
-  max-width: 500px;
-  margin: 30px auto;
-  background: #F2E3D5;
-  padding: 20px;
-  border-radius: 10px;
+.formularioContacto {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.formularioContacto label{
-  font-weight: bold;
-  color: #004E64;
-}
-
 .formularioContacto input,
-.formularioContacto textarea{
+.formularioContacto textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 16px;
 }
 
-.formularioContacto button{
+.formularioContacto button {
   background: #004E64;
   color: #fff;
   border: none;
   padding: 12px;
-  border-radius: 5px;
-  font-size: 18px;
+  border-radius: 6px;
+  font-size: 16px;
   cursor: pointer;
   transition: background 0.3s;
 }
 
-.formularioContacto button:hover{
+.formularioContacto button:hover {
   background: #00755C;
 }
 
@@ -493,5 +503,36 @@ h2{
   flex-direction: column;
   align-items: center;
   text-align: center;
+  }
+
+    .contenedorCarrito {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contenedorLista,
+  .resumenCarrito {
+    width: 100%;
+    margin: 0 auto 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contenedorCarrito {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .contenedorLista,
+  .resumenCarrito {
+    flex: none;
+    width: 100%;            
+    max-width: 600px;        
+    margin: 0 auto 20px;   
+  }
+
+  .itemCarrito {
+    margin: 0 10px;      
+    width: calc(100% - 20px);
   }
 }

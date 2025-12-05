@@ -38,7 +38,7 @@ export function mostrarCarrito() {
 
     if (item.img) {
       const img = document.createElement("img");
-      img.src = normalizarRutaImagen(item.img);
+      img.src = resolverRutaImagen(item.img);
       img.alt = item.nombre || "Producto";
       img.className = "imagenCarrito";
       li.appendChild(img);
@@ -124,7 +124,7 @@ export function mostrarCarritoEnContacto() {
 
     if (item.img) {
       const img = document.createElement("img");
-      img.src = normalizarRutaImagen(item.img);
+      img.src = resolverRutaImagen(item.img);
       img.alt = item.nombre || "Producto";
       img.className = "imagenCarrito";
       li.appendChild(img);
@@ -139,18 +139,15 @@ export function mostrarCarritoEnContacto() {
   });
 }
 
-function normalizarRutaImagen(ruta) {
+function resolverRutaImagen(ruta) {
   if (!ruta) return "";
-
-  if (ruta.startsWith("./imagenes")) {
-    if (window.location.pathname.includes("/menu/")) {
-      return ruta.replace("./imagenes", "../imagenes");
-    } else {
-      return ruta.replace("./imagenes", "imagenes");
-    }
+  try {
+    const url = new URL(ruta, window.location.origin + "/");
+    return url.href;
+  } catch {
+    return ruta;
   }
-
-  return ruta;
 }
+
 
 

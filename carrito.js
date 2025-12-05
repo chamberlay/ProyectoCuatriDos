@@ -140,8 +140,11 @@ export function mostrarCarritoEnContacto() {
 }
 
 function normalizarRutaImagen(ruta) {
-  if (ruta.startsWith("./imagenes")) {
-    return ruta.replace("./imagenes", "../imagenes");
+  if (!ruta) return "";
+  if (ruta.includes("imagenes/")) {
+    const archivo = ruta.split("imagenes/")[1];
+    return "/imagenes/" + archivo;
   }
   return ruta;
 }
+

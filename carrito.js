@@ -124,7 +124,7 @@ export function mostrarCarritoEnContacto() {
 
     if (item.img) {
       const img = document.createElement("img");
-      img.src = item.img;
+      img.src = normalizarRutaImagen(item.img);
       img.alt = item.nombre || "Producto";
       img.className = "imagenCarrito";
       li.appendChild(img);

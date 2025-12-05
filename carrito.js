@@ -38,7 +38,7 @@ export function mostrarCarrito() {
 
     if (item.img) {
       const img = document.createElement("img");
-      img.src = item.img;
+      img.src = normalizarRutaImagen(item.img);
       img.alt = item.nombre || "Producto";
       img.className = "imagenCarrito";
       li.appendChild(img);
@@ -60,7 +60,6 @@ export function mostrarCarrito() {
 
   actualizarResumenCarrito(carrito, total);
 }
-
 
 // Eliminar producto por índice
 export function eliminarDelCarrito(index) {
@@ -138,4 +137,11 @@ export function mostrarCarritoEnContacto() {
 
     lista.appendChild(li);
   });
+}
+
+function normalizarRutaImagen(ruta) {
+  if (ruta.startsWith("./imagenes")) {
+    return ruta.replace("./imagenes", "../imagenes");
+  }
+  return ruta;
 }

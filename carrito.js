@@ -38,7 +38,7 @@ export function mostrarCarrito() {
 
     if (item.img) {
       const img = document.createElement("img");
-      img.src = item.img;
+      img.src = resolverRutaImagen(item.img);
       img.alt = item.nombre || "Producto";
       img.className = "imagenCarrito";
       li.appendChild(img);
@@ -124,7 +124,7 @@ export function mostrarCarritoEnContacto() {
 
     if (item.img) {
       const img = document.createElement("img");
-      img.src = item.img;
+      img.src = resolverRutaImagen(item.img);
       img.alt = item.nombre || "Producto";
       img.className = "imagenCarrito";
       li.appendChild(img);
@@ -137,6 +137,16 @@ export function mostrarCarritoEnContacto() {
 
     lista.appendChild(li);
   });
+}
+
+function resolverRutaImagen(ruta) {
+  if (!ruta) return "";
+  try {
+    const url = new URL(ruta, window.location.origin + "/");
+    return url.href;
+  } catch {
+    return ruta;
+  }
 }
 
 

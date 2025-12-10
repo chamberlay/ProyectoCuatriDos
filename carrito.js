@@ -148,6 +148,3 @@ function resolverRutaImagen(ruta) {
     return ruta;
   }
 }
-
-
-

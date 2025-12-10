@@ -4,7 +4,6 @@ import { air_Table_Token, air_Table_Base_Id} from './env.js';
 //importo el modulo carrito.js
 import { agregarAlCarrito } from "./carrito.js";
 
-
 // Configuración de Airtable
 const airTableToken = air_Table_Token;
 const airTableBaseId = air_Table_Base_Id;

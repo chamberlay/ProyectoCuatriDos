@@ -106,7 +106,7 @@ export function actualizarResumenCarrito(carrito, totalElement) {
 export function mostrarCarritoEnContacto() {
   const lista = document.getElementById("listaCarrito");
   const mensajeVacio = document.getElementById("mensajeCarritoVacio");
-  if (!lista) return; // seguridad
+  if (!lista) return;
 
   lista.innerHTML = "";
   const carrito = obtenerCarrito();
@@ -124,7 +124,7 @@ export function mostrarCarritoEnContacto() {
 
     if (item.img) {
       const img = document.createElement("img");
-      img.src = resolverRutaImagen(item.img);
+      img.src = item.img;
       img.alt = item.nombre || "Producto";
       img.className = "imagenCarrito";
       li.appendChild(img);

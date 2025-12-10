@@ -138,6 +138,3 @@ export function mostrarCarritoEnContacto() {
     lista.appendChild(li);
   });
 }
-
-
-

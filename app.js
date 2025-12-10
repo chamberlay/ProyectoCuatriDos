@@ -1,18 +1,17 @@
 //importo el archivo env.js con las keys de Airtable
-import { air_Table_Token, air_Table_Base_Id} from './env.js';
+import { air_Table_Token, air_Table_Base_Id } from './env.js';
 
 //importo el modulo carrito.js
 import { agregarAlCarrito } from "./carrito.js";
-
 
 // Configuración de Airtable
 const airTableToken = air_Table_Token;
 const airTableBaseId = air_Table_Base_Id;
 
 //funcion para agregar productos a las secciones
-function agregarProducto(clase, href, src, titulo, precio){
+function agregarProducto(clase, href, src, titulo, precio) {
     const productos = document.querySelector(clase);
-    if(!productos) return;
+    if (!productos) return;
 
     const contenedor = document.createElement("div");
     contenedor.className = "producto";
@@ -21,7 +20,9 @@ function agregarProducto(clase, href, src, titulo, precio){
     newAnchor.href = href;
 
     const newImg = document.createElement("img");
-    newImg.src = src;
+    
+    newImg.src = src.startsWith("./") ? src.replace("./", "/") : src;
+
     newImg.width = 300;
     newImg.height = 200;
 
@@ -40,7 +41,7 @@ function agregarProducto(clase, href, src, titulo, precio){
         agregarAlCarrito({
             nombre: titulo,
             precio: precio,
-            img: src
+            img: newImg.src
         });
     };
 
@@ -67,16 +68,21 @@ export async function GetProductosFromAirTable(tableName) {
 
         data.records.forEach(record => {
             const fields = record.fields;
-            if (fields.Activo === "true"){
+            if (fields.Activo === "true") {
+
+                const imagenCorregida = fields.Img.startsWith("./")
+                    ? fields.Img.replace("./", "/")
+                    : fields.Img;
+
                 agregarProducto(
                     fields.Categoria,
                     fields.Url,
-                    fields.Img,
+                    imagenCorregida,
                     fields.Nombre,
                     fields.Precio
                 );
             }
-        }); 
+        });
     }
     catch (error) {
         console.error("Error al obtener los datos de AirTable: ", error);
@@ -85,19 +91,19 @@ export async function GetProductosFromAirTable(tableName) {
 
 // buscador de productos
 window.addEventListener("DOMContentLoaded", () => {
-  const input = document.getElementById("searchInput");
-  const container = document.querySelector(".contenedorProductos");
+    const input = document.getElementById("searchInput");
+    const container = document.querySelector(".contenedorProductos");
 
-  if (!input || !container) return;
+    if (!input || !container) return;
 
-  input.addEventListener("input", (e) => {
-    const query = e.target.value.toLowerCase();
+    input.addEventListener("input", (e) => {
+        const query = e.target.value.toLowerCase();
 
-    container.querySelectorAll(".producto").forEach((prod) => {
-      const nombre = (prod.querySelector("h3")?.textContent || "").toLowerCase();
-      const precio = (prod.querySelector(".precio")?.textContent || "").toLowerCase();
+        container.querySelectorAll(".producto").forEach((prod) => {
+            const nombre = (prod.querySelector("h3")?.textContent || "").toLowerCase();
+            const precio = (prod.querySelector(".precio")?.textContent || "").toLowerCase();
 
-      prod.style.display = (nombre.includes(query) || precio.includes(query)) ? "" : "none";
+            prod.style.display = (nombre.includes(query) || precio.includes(query)) ? "" : "none";
+        });
     });
-  });
 });

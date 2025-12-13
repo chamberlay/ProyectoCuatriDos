@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../styles.css">
     <title>BA Experience</title>
 </head>
-<script type="module" src="../app.js"></script>
 <body>
 
     <header>
@@ -46,13 +45,7 @@
     </div>
 
     <div class="contenedorProductos">
-        <div class="productosRecitales"></div>
-        
-        <script type="module">
-            import { GetProductosFromAirTable } from '../app.js';
-            GetProductosFromAirTable("Recitales");
-        </script>
-
+        <div class="Recitales"></div>
     </div>
 
     <footer class="contenedorFooter">
@@ -85,5 +78,9 @@
         </div>
     </footer>
 
+    <script type="module">
+        import { GetProductosFromAirTable } from '../app.js';
+        GetProductosFromAirTable("Productos");
+    </script>
 </body>
 </html>

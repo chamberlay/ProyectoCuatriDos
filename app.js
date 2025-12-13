@@ -1,5 +1,5 @@
 //importo el archivo env.js con las keys de Airtable
-import { air_Table_Token, air_Table_Base_Id} from './env.js';
+import { air_Table_Token, air_Table_Base_Id} from '../env.js';
 
 //importo el modulo carrito.js
 import { agregarAlCarrito } from "./carrito.js";
@@ -9,47 +9,48 @@ const airTableToken = air_Table_Token;
 const airTableBaseId = air_Table_Base_Id;
 
 //funcion para agregar productos a las secciones
-function agregarProducto(clase, href, src, titulo, precio){
-    const productos = document.querySelector(clase);
-    if(!productos) return;
+function agregarProducto(selectorCategoria, urlProducto, imagenPrincipal, tituloProducto, precioProducto) {
+    const contenedorCategoria = document.querySelector(selectorCategoria);
+    if (!contenedorCategoria) return;
 
     const contenedor = document.createElement("div");
     contenedor.className = "producto";
 
-    const newAnchor = document.createElement("a");
-    newAnchor.href = href;
+    const enlace = document.createElement("a");
+    enlace.href = urlProducto;
 
-    const newImg = document.createElement("img");
-    newImg.src = src;
-    newImg.width = 300;
-    newImg.height = 200;
+    const imagen = document.createElement("img");
+    imagen.src = imagenPrincipal;
+    imagen.alt = tituloProducto;
+    imagen.width = 300;
+    imagen.height = 200;
 
-    const newH3 = document.createElement("h3");
-    newH3.textContent = titulo;
+    const titulo = document.createElement("h3");
+    titulo.textContent = tituloProducto;
 
-    const newPrice = document.createElement("p");
-    newPrice.textContent = `$${Number(precio).toLocaleString("es-AR")}`;
-    newPrice.className = "precio";
+    const precio = document.createElement("p");
+    precio.textContent = `$${Number(precioProducto).toLocaleString("es-AR")}`;
+    precio.className = "precio";
 
-    const newBoton = document.createElement("button");
-    newBoton.textContent = "Agregar al carrito";
-    newBoton.className = "agregarCarrito";
+    const boton = document.createElement("button");
+    boton.textContent = "Agregar al carrito";
+    boton.className = "agregarCarrito";
 
-    newBoton.onclick = () => {
+    boton.onclick = () => {
         agregarAlCarrito({
-            nombre: titulo,
-            precio: precio,
-            img: src
+            nombre: tituloProducto,
+            precio: precioProducto,
+            img: imagenPrincipal
         });
     };
 
-    newAnchor.appendChild(newImg);
-    contenedor.appendChild(newAnchor);
-    contenedor.appendChild(newH3);
-    contenedor.appendChild(newPrice);
-    contenedor.appendChild(newBoton);
+    enlace.appendChild(imagen);
+    contenedor.appendChild(enlace);
+    contenedor.appendChild(titulo);
+    contenedor.appendChild(precio);
+    contenedor.appendChild(boton);
 
-    productos.appendChild(contenedor);
+    contenedorCategoria.appendChild(contenedor);
 }
 
 // Función para obtener datos de Airtable
@@ -66,11 +67,11 @@ export async function GetProductosFromAirTable(tableName) {
 
         data.records.forEach(record => {
             const fields = record.fields;
-            if (fields.Activo === "true"){
+            if (fields.Estado === "activado") {
                 agregarProducto(
                     fields.Categoria,
-                    fields.Url,
-                    fields.Img,
+                    `../producto.html?id=${fields.Slug}`,
+                    fields.imagenPrincipal,
                     fields.Nombre,
                     fields.Precio
                 );

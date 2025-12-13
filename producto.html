@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BA Experience — Producto</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>
+        <a href="./index.html" title="BA Experience" rel="home">
+          <img src="./imagenes/fondo.png" alt="BA Experience">
+        </a>
+      </h1>
+    </div>
+
+    <div class="contenedorMenu">
+      <input type="checkbox" id="menuHamburguesa">
+      <label for="menuHamburguesa" class="iconoMenu"><i class="fa fa-bars"></i></label>
+
+      <nav class="menu">
+        <a href="./index.html">Promociones</a>
+        <a href="./menu/sitiosTuristicos.html">Sitios Turísticos</a>
+        <a href="./menu/eventosDeportivos.html">Eventos deportivos</a>
+        <a href="./menu/recitales.html">Recitales</a>
+        <a href="./menu/transportes.html">Transportes</a>
+        <a href="./contacto.html">Contacto</a>
+      </nav>
+
+      <a href="./carrito.html" class="iconoCarrito">
+        <i class="fa fa-shopping-cart" style="font-size:32px;"></i>
+      </a>
+    </div>
+  </header>
+
+  <div class="galeria" id="galeria"></div>
+
+  <div class="descripcion">
+
+    <div class="tarjeta">
+      <h3 id="titulo">Título del producto</h3>
+      <p id="descripcion">Descripción del producto.</p>
+    </div>
+
+    <div class="tarjeta">
+      <h3>El paquete incluye:</h3>
+      <ul id="incluye"></ul>
+    </div>
+
+  </div>
+
+  <button class="agregarCarrito" id="botonCarrito">
+    Agregar al carrito
+  </button>
+
+  <footer class="contenedorFooter">
+    <div>
+      <h3>BA Experience</h3><br>
+      <h5><i class="fa fa-map-marker"></i> Terminal de Omnibus de Retiro, Ala Norte, Loc C-15 - Buenos Aires, Argentina</h5><br>
+      <h5><i class="fa fa-phone"></i> (+54) 11 12345678</h5><br>
+      <h5><i class="fa fa-envelope-o"></i> consultas@baexperience.tur.ar</h5><br>
+      <h5><i class="fa fa-facebook"></i> facebook.com/BAExperience</h5><br>
+    </div>
+
+    <div>
+      <h3>Visítenos</h3><br>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!..."
+        title="Mapa — Terminal de Retiro"
+        width="300"
+        height="200"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <div>
+      <strong>BA Experience</strong> es una agencia de turismo de la Ciudad Autónoma de Buenos Aires, en la República Argentina.
+      Registrada bajo el <strong>Leg. N° 16184</strong> otorgada por el Registro Nacional de Agencias de Turismo <br>
+      <img src="./imagenes/logosFooter.png" alt="">
+    </div>
+  </footer>
+
+  <script type="module" src="./producto.js"></script>
+</body>
+</html>

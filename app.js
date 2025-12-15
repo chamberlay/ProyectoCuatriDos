@@ -19,7 +19,7 @@ function agregarProducto(selectorCategoria, urlProducto, imagenPrincipal, titulo
     const enlace = document.createElement("a");
     enlace.href = urlProducto;
 
-    const rutaImagen = `./imagenes/${imagenPrincipal}`;
+    const rutaImagen = `/imagenes/${imagenPrincipal}`;
     const imagen = document.createElement("img");
     imagen.src = rutaImagen;
     imagen.alt = tituloProducto;

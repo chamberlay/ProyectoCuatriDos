@@ -1,5 +1,5 @@
 //importo el archivo env.js con las keys de Airtable
-import { air_Table_Token, air_Table_Base_Id} from '../env.js';
+import { air_Table_Token, air_Table_Base_Id} from './env.js';
 
 //importo el modulo carrito.js
 import { agregarAlCarrito } from "./carrito.js";

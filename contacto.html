@@ -7,10 +7,6 @@
     <link rel="stylesheet" href="./styles.css">
     <title>BA Experience</title>
 </head>
-<script type="module">
-  import { mostrarCarritoEnContacto } from "./carrito.js";
-  mostrarCarritoEnContacto();
-</script>
 
 <body>
 
@@ -54,7 +50,7 @@
 
         <div class="resumenCarrito">
             <h3>Formulario de contacto</h3>
-            <form action="procesar.txt" method="post" class="formularioContacto">
+            <form id="formContacto" class="formularioContacto">
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre:" required>  
 
@@ -102,6 +98,13 @@
             <img src="./imagenes/logosFooter.png" alt="">
         </div>
     </footer>
+
+    <script type="module">
+        import { mostrarCarritoEnContacto } from "./carrito.js";
+        mostrarCarritoEnContacto();
+    </script>
+
+    <script type="module" src="./contacto.js"></script>
 
 </body>
 </html>

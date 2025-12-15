@@ -375,6 +375,33 @@ h2{
   background: #00755C;
 }
 
+.mensajeContacto {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mensajeContacto.exito {
+  background: #4caf50;
+}
+
+.mensajeContacto.error {
+  background: #f44336;
+}
+
+.mensajeContacto.mostrar {
+  opacity: 1;
+}
 /*############################### categorias ###############################*/
 
 .contenedorProductos > div{

@@ -8,6 +8,10 @@ import { agregarAlCarrito } from "./carrito.js";
 const airTableToken = air_Table_Token;
 const airTableBaseId = air_Table_Base_Id;
 
+const basePath = window.location.hostname === "localhost"
+  ? ""
+  : "/ProyectoCuatriDos";
+
 //funcion para agregar productos a las secciones
 function agregarProducto(selectorCategoria, urlProducto, imagenPrincipal, tituloProducto, precioProducto) {
     const contenedorCategoria = document.querySelector(selectorCategoria);
@@ -19,7 +23,7 @@ function agregarProducto(selectorCategoria, urlProducto, imagenPrincipal, titulo
     const enlace = document.createElement("a");
     enlace.href = urlProducto;
 
-    const rutaImagen = `/ProyectoCuatriDos/imagenes/${imagenPrincipal}`;
+    const rutaImagen = `${basePath}/imagenes/${imagenPrincipal}`;
     const imagen = document.createElement("img");
     imagen.src = rutaImagen;
     imagen.alt = tituloProducto;

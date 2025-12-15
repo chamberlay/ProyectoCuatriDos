@@ -19,8 +19,9 @@ function agregarProducto(selectorCategoria, urlProducto, imagenPrincipal, titulo
     const enlace = document.createElement("a");
     enlace.href = urlProducto;
 
+    const rutaImagen = `./imagenes/${imagenPrincipal}`;
     const imagen = document.createElement("img");
-    imagen.src = imagenPrincipal;
+    imagen.src = rutaImagen;
     imagen.alt = tituloProducto;
     imagen.width = 300;
     imagen.height = 200;
@@ -40,7 +41,7 @@ function agregarProducto(selectorCategoria, urlProducto, imagenPrincipal, titulo
         agregarAlCarrito({
             nombre: tituloProducto,
             precio: precioProducto,
-            img: imagenPrincipal
+            img: rutaImagen
         });
     };
 

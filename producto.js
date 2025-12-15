@@ -1,6 +1,14 @@
 import { agregarAlCarrito } from "./carrito.js";
 import { air_Table_Token, air_Table_Base_Id } from "./env.js";
 
+// Detectar si estamos en GitHub Pages o en local
+const isGitHub = window.location.hostname.includes("github.io");
+
+// Base URL dinámica
+const baseURL = isGitHub
+  ? "/ProyectoCuatriDos"
+  : "";
+
 const galeria = document.getElementById("galeria");
 const titulo = document.getElementById("titulo");
 const descripcion = document.getElementById("descripcion");
@@ -38,7 +46,7 @@ function renderizarProducto(producto) {
 
   listaGaleria.forEach(ruta => {
     const imagen = document.createElement("img");
-    imagen.src = ruta;
+    imagen.src = `${baseURL}/imagenes/${ruta}`;
     imagen.alt = producto.Nombre;
     galeria.appendChild(imagen);
   });
@@ -59,7 +67,7 @@ function renderizarProducto(producto) {
     agregarAlCarrito({
       nombre: producto.Nombre,
       precio: producto.Precio,
-      img: producto.imagenPrincipal
+      img: `${baseURL}/imagenes/${producto.imagenPrincipal}`
     });
   };
 }

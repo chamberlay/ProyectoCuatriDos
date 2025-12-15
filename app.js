@@ -8,12 +8,16 @@ import { agregarAlCarrito } from "./carrito.js";
 const airTableToken = air_Table_Token;
 const airTableBaseId = air_Table_Base_Id;
 
-const basePath = window.location.hostname === "localhost"
-  ? ""
-  : "/ProyectoCuatriDos";
+// Detectar si estamos en GitHub Pages o en local
+const isGitHub = window.location.hostname.includes("github.io");
+
+// Base URL dinámica
+const baseURL = isGitHub
+  ? "/ProyectoCuatriDos"
+  : ""; 
 
 //funcion para agregar productos a las secciones
-function agregarProducto(selectorCategoria, urlProducto, imagenPrincipal, tituloProducto, precioProducto) {
+function agregarProducto(selectorCategoria, slug, imagenPrincipal, tituloProducto, precioProducto) {
     const contenedorCategoria = document.querySelector(selectorCategoria);
     if (!contenedorCategoria) return;
 
@@ -21,9 +25,9 @@ function agregarProducto(selectorCategoria, urlProducto, imagenPrincipal, titulo
     contenedor.className = "producto";
 
     const enlace = document.createElement("a");
-    enlace.href = urlProducto;
+    enlace.href = `${baseURL}/producto.html?id=${slug}`;
 
-    const rutaImagen = `${basePath}/imagenes/${imagenPrincipal}`;
+    const rutaImagen = `${baseURL}/imagenes/${imagenPrincipal}`;
     const imagen = document.createElement("img");
     imagen.src = rutaImagen;
     imagen.alt = tituloProducto;
@@ -75,7 +79,7 @@ export async function GetProductosFromAirTable(tableName) {
             if (fields.Estado === "activado") {
                 agregarProducto(
                     fields.Categoria,
-                    `../producto.html?id=${fields.Slug}`,
+                    fields.Slug,
                     fields.imagenPrincipal,
                     fields.Nombre,
                     fields.Precio

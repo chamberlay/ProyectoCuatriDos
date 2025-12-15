@@ -186,6 +186,13 @@ color: #d9d9d9;
   background: #c82333;
 }
 
+.contadorCarrito {
+  width: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+
 #vaciarCarrito, #finalizarCarrito {
   border: none;
   padding: 10px 15px;

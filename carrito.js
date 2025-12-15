@@ -11,7 +11,17 @@ export function guardarCarrito(carrito) {
 // Agregar producto desde otras páginas
 export function agregarAlCarrito(producto) {
   const carrito = obtenerCarrito();
-  carrito.push(producto);
+  const existente = carrito.find(p => p.nombre === producto.nombre);
+
+  if (existente) {
+    if (existente.cantidad < 5) {
+      existente.cantidad += 1;
+    }
+  } else {
+    producto.cantidad = 1;
+    carrito.push(producto);
+  }
+
   guardarCarrito(carrito);
 
   const mensaje = document.createElement("div");
@@ -48,6 +58,23 @@ export function mostrarCarrito() {
     h4.textContent = item.nombre || "Sin nombre";
     h4.className = "tituloCarrito";
     li.appendChild(h4);
+
+    // Contador editable
+    const inputCantidad = document.createElement("input");
+    inputCantidad.type = "number";
+    inputCantidad.min = 1;
+    inputCantidad.max = 5;
+    inputCantidad.value = item.cantidad || 1;
+    inputCantidad.className = "contadorCarrito";
+
+    inputCantidad.onchange = () => {
+      const carrito = obtenerCarrito();
+      carrito[index].cantidad = Number(inputCantidad.value);
+      guardarCarrito(carrito);
+      mostrarCarrito();
+    };
+
+    li.appendChild(inputCantidad);
 
     const btn = document.createElement("button");
     btn.textContent = "Eliminar del carrito";
@@ -91,7 +118,7 @@ export function vaciarCarrito() {
 
 // Actualizar resumen de compra
 export function actualizarResumenCarrito(carrito, totalElement) {
-  const subtotal = carrito.reduce((acc, item) => acc + Number(item.precio), 0);
+  const subtotal = carrito.reduce((acc, item) => acc + Number(item.precio) * (item.cantidad || 1), 0);
   const iva = subtotal * 0.21;
   const total = subtotal + iva;
 
@@ -131,7 +158,7 @@ export function mostrarCarritoEnContacto() {
     }
 
     const h4 = document.createElement("h4");
-    h4.textContent = item.nombre || "Sin nombre";
+    h4.textContent = `${item.nombre} (x${item.cantidad || 1})`;
     h4.className = "tituloCarrito";
     li.appendChild(h4);
 
